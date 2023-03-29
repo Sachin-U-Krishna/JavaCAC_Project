@@ -4,15 +4,15 @@ import java.awt.event.ActionListener;
 
 public class Login extends JFrame{
         private JTextField username;
-        private JTextField password;
-        private JButton login;
+    private JButton login;
     private JPanel panelMain;
+    private JPasswordField password;
 
     public Login() {
         login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(login,username.getText()+" , Hello");
+                JOptionPane.showMessageDialog(login,"Hello ,"+username.getText()+" , pass " +password.getText());
             }
         });
     }
