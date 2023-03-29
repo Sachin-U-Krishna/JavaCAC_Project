@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class Login extends JFrame{
         private JTextField username;
@@ -8,20 +12,39 @@ public class Login extends JFrame{
     private JPanel panelMain;
     private JPasswordField password;
 
+    private JFrame h = new JFrame("Login");
     public Login() {
+        h.setContentPane(panelMain);
+        h.setTitle("Hi");
+        h.setSize(500,400);
+        h.setVisible(true);
+        h.setResizable(false);
+        h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(login,"Hello ,"+username.getText()+" , pass " +password.getText());
+                String uname = username.getText();
+                String pass = password.getText();
+
+                try{
+//            Class.forName("com.mysql.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root","");
+                    Statement stmt = con.createStatement();
+                    String s = "select * from users where username='"+uname+"' and password='"+pass+"'";
+                    ResultSet rs = stmt.executeQuery(s);
+                    if(rs.next()){
+                        h.dispose();
+                        new Dash();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(login, "Invalid Credentials");
+                    }
+                }catch(Exception err){ System.out.println(err);}
             }
         });
     }
     public static void main(String[] args) {
-        Login h= new Login();
-        h.setContentPane(h.panelMain);
-        h.setTitle("Hi");
-        h.setSize(500,400);
-        h.setVisible(true);
-        h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        new Login();
     }
 }
