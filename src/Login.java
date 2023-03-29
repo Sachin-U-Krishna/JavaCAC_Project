@@ -13,6 +13,7 @@ public class Login extends JFrame{
     private JPasswordField password;
 
     private JFrame h = new JFrame("Login");
+    private String DB_PASS = "Kpsy@2022";
     public Login() {
         h.setContentPane(panelMain);
         h.setTitle("Hi");
@@ -27,9 +28,9 @@ public class Login extends JFrame{
                 String pass = password.getText();
 
                 try{
-//            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
                     Connection con= DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/JDBC","root",System.getenv("DB_PASS"));
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
                     Statement stmt = con.createStatement();
                     String s = "select * from users where username='"+uname+"' and password='"+pass+"'";
                     ResultSet rs = stmt.executeQuery(s);
