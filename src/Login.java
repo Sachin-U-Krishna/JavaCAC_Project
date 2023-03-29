@@ -29,7 +29,7 @@ public class Login extends JFrame{
                 try{
 //            Class.forName("com.mysql.jdbc.Driver");
                     Connection con= DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/JDBC","root","");
+                            "jdbc:mysql://localhost:3306/JDBC","root",System.getenv("DB_PASS"));
                     Statement stmt = con.createStatement();
                     String s = "select * from users where username='"+uname+"' and password='"+pass+"'";
                     ResultSet rs = stmt.executeQuery(s);
