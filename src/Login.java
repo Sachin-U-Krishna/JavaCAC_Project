@@ -14,11 +14,11 @@ public class Login extends JFrame{
     private JButton signUp;
 
     private JFrame h = new JFrame("Login");
-    private String DB_PASS = "Kpsy@2022";
+    private String DB_PASS = "";
     public Login() {
         h.setContentPane(panelMain);
         h.setTitle("Hi");
-        h.setSize(600,900);
+        h.setSize(500,400);
         h.setVisible(true);
         h.setResizable(false);
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
