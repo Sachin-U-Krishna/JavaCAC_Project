@@ -17,7 +17,7 @@ public class Login extends JFrame{
     public Login() {
         h.setContentPane(panelMain);
         h.setTitle("Hi");
-        h.setSize(500,400);
+        h.setSize(600,900);
         h.setVisible(true);
         h.setResizable(false);
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
