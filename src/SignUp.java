@@ -10,7 +10,7 @@ public class SignUp extends JFrame  {
     private JComboBox comboBox1;
     private JFormattedTextField a91FormattedTextField;
     private JTextField lastNameTextField;
-    private JButton submit;
+    private JButton submitSignUp;
     private JComboBox comboBox2;
 
     private JLabel GenderSelected;
@@ -30,6 +30,12 @@ public class SignUp extends JFrame  {
             }
         });
 
+        submitSignUp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
 

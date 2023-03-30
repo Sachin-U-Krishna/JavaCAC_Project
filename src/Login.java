@@ -11,6 +11,7 @@ public class Login extends JFrame{
     private JButton login;
     private JPanel panelMain;
     private JPasswordField password;
+    private JButton signUp;
 
     private JFrame h = new JFrame("Login");
     private String DB_PASS = "Kpsy@2022";
@@ -42,6 +43,12 @@ public class Login extends JFrame{
                         JOptionPane.showMessageDialog(login, "Invalid Credentials");
                     }
                 }catch(Exception err){ System.out.println(err);}
+            }
+        });
+        signUp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

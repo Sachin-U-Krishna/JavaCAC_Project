@@ -141,7 +141,7 @@
           <text value="Location"/>
         </properties>
       </component>
-      <component id="595f1" class="javax.swing.JButton" binding="submit">
+      <component id="595f1" class="javax.swing.JButton" binding="submitSignUp">
         <constraints>
           <grid row="23" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="-1" height="30"/>
