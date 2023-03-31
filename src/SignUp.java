@@ -12,6 +12,7 @@ public class SignUp extends JFrame  {
     private JTextField lastNameTextField;
     private JButton submitSignUp;
     private JComboBox comboBox2;
+    private JButton cancelButton;
 
     private JLabel GenderSelected;
     private JFrame frame = new JFrame("SignUp");

@@ -13,20 +13,23 @@ public class Dash extends JFrame{
     private JButton ordersButton;
     private JPanel profilePanel;
     private JPanel Iphone;
-    private JPanel Tab;
     private JPanel Laptop;
     private JPanel Mobile;
     private JPanel Watch;
     private JPanel Earphone;
     private JPanel orderPanel;
+    private JPanel Tab;
+    private JButton buyButton;
+    private JComboBox comboBox1;
 
     private JFrame h = new JFrame("Dash");
+
     public Dash() {
         h.setContentPane(panelDash);
         h.setTitle("Hi");
-        h.setSize(500,400);
+        h.setSize(1600,1200);
         h.setVisible(true);
-        h.setResizable(false);
+        //h.setResizable(false);
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel greenPanel=new JPanel();
