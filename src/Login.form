@@ -46,21 +46,6 @@
           <text value="Password"/>
         </properties>
       </component>
-<<<<<<< HEAD
-      <component id="a7806" class="javax.swing.JButton" binding="login">
-        <constraints>
-          <grid row="7" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-10789027"/>
-          <enabled value="true"/>
-          <font name="Malgun Gothic" size="22" style="1"/>
-          <foreground color="-16721742"/>
-          <text value="Login"/>
-        </properties>
-      </component>
-=======
->>>>>>> 0a63e5d472c884328599cbac1bad13f1f6ea7dbc
       <component id="a06a2" class="javax.swing.JLabel">
         <constraints>
           <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -124,7 +109,6 @@
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-<<<<<<< HEAD
       <component id="30e20" class="javax.swing.JButton" binding="signUp">
         <constraints>
           <grid row="7" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -134,7 +118,8 @@
           <font name="Malgun Gothic" size="22" style="1"/>
           <foreground color="-16721742"/>
           <text value="Sign Up"/>
-=======
+        </properties>
+      </component>
       <component id="a7806" class="javax.swing.JButton" binding="login">
         <constraints>
           <grid row="7" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -145,7 +130,6 @@
           <font size="22" style="1"/>
           <foreground color="-16721742"/>
           <text value="Login"/>
->>>>>>> 0a63e5d472c884328599cbac1bad13f1f6ea7dbc
         </properties>
       </component>
     </children>
