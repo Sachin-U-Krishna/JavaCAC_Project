@@ -29,11 +29,11 @@ public class Login extends JFrame{
                 String pass = password.getText();
 
                 try{
-            Class.forName("com.mysql.jdbc.Driver");
+                    Class.forName("com.mysql.jdbc.Driver");
                     Connection con= DriverManager.getConnection(
                             "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
                     Statement stmt = con.createStatement();
-                    String s = "select * from users where username='"+uname+"' and password='"+pass+"'";
+                    String s = "select * from users where email='"+uname+"' and password='"+pass+"'";
                     ResultSet rs = stmt.executeQuery(s);
                     if(rs.next()){
                         h.dispose();
@@ -48,7 +48,8 @@ public class Login extends JFrame{
         signUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                h.dispose();
+                new SignUp();
             }
         });
     }

@@ -27,14 +27,14 @@ public class Dash extends JFrame{
     public Dash() {
         h.setContentPane(panelDash);
         h.setTitle("Hi");
-        h.setSize(1600,1200);
+        h.setSize(1200,720);
         h.setVisible(true);
-        //h.setResizable(false);
+//        h.setResizable(false);
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel greenPanel=new JPanel();
         greenPanel.setBackground(Color.blue);
-        greenPanel.setBounds(250,0,250,250);
+        greenPanel.setBounds(10,0,10,10);
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
