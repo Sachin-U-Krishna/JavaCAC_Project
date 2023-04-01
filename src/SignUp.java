@@ -40,7 +40,7 @@ public class SignUp extends JFrame  {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                    Class.forName("com.mysql.jdbc.Driver");
+                    Class.forName("com.mysql.jdbc.cj.Driver");
                     Connection con= DriverManager.getConnection(
                             "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
                     Statement stmt = con.createStatement();

@@ -152,7 +152,7 @@
                         </constraints>
                         <properties>
                           <font name="Malgun Gothic" size="20" style="1"/>
-                          <text value="Buy"/>
+                          <text value="Cart"/>
                         </properties>
                       </component>
                       <component id="d1221" class="javax.swing.JComboBox" binding="iphoneBox1">
@@ -306,7 +306,7 @@
                         </constraints>
                         <properties>
                           <font name="Malgun Gothic" size="20" style="1"/>
-                          <text value="Buy"/>
+                          <text value="Cart"/>
                         </properties>
                       </component>
                       <component id="50256" class="javax.swing.JComboBox" binding="tabBox1">
@@ -440,7 +440,7 @@
                         </constraints>
                         <properties>
                           <font name="Malgun Gothic" size="20" style="1"/>
-                          <text value="Buy"/>
+                          <text value="Cart"/>
                         </properties>
                       </component>
                       <component id="7d635" class="javax.swing.JComboBox" binding="laptopBox1">
@@ -574,7 +574,7 @@
                         </constraints>
                         <properties>
                           <font name="Malgun Gothic" size="20" style="1"/>
-                          <text value="Buy"/>
+                          <text value="Cart"/>
                         </properties>
                       </component>
                       <component id="3a9d1" class="javax.swing.JComboBox" binding="smartWatchBox1">
@@ -708,7 +708,7 @@
                         </constraints>
                         <properties>
                           <font name="Malgun Gothic" size="20" style="1"/>
-                          <text value="Buy"/>
+                          <text value="Cart"/>
                         </properties>
                       </component>
                       <component id="7d3df" class="javax.swing.JComboBox" binding="androidBox1">
@@ -842,7 +842,7 @@
                         </constraints>
                         <properties>
                           <font name="Malgun Gothic" size="20" style="1"/>
-                          <text value="Buy"/>
+                          <text value="Cart"/>
                         </properties>
                       </component>
                       <component id="92a3d" class="javax.swing.JComboBox" binding="earphoneBox1">

@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 public class Dash extends JFrame{
     private JPanel panelDash;
@@ -36,6 +39,8 @@ public class Dash extends JFrame{
     private JPanel panel6;
     private JButton buyIphone;
     private JComboBox iphoneBox1;
+
+    private String DB_PASS = "";
 
     private JFrame h = new JFrame("Dash");
 
@@ -77,88 +82,101 @@ public class Dash extends JFrame{
                 parentPanel.revalidate();
             }
         });
-        iphoneBox1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
         buyIphone.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String del = "DELETE from cart where id = 1;";
+                    stmt.execute(del);
+                    String s = "INSERT into cart values(1,'Iphone',29999,"+ Integer.parseInt(iphoneBox1.getSelectedItem().toString())+");";
+                    stmt.execute(s);
+                    JOptionPane.showMessageDialog(panelDash, "Added to cart");
+                }catch(Exception err){ System.out.println(err);}
             }
         });
-        tabBox1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-            }
-        });
         buyTab.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        laptopBox1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String del = "DELETE from cart where id = 2;";
+                    stmt.execute(del);
+                    String s = "INSERT into cart values(2,'Tab',20000,"+ Integer.parseInt(tabBox1.getSelectedItem().toString())+");";
+                    stmt.execute(s);
+                    JOptionPane.showMessageDialog(panelDash, "Added to cart");
+                }catch(Exception err){ System.out.println(err);}
             }
         });
         buyLaptop.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        earphoneBox1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        buyEarphone.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        buyAndroid.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        androidBox1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String del = "DELETE from cart where id = 3;";
+                    stmt.execute(del);
+                    String s = "INSERT into cart values(3,'Laptop',52000,"+ Integer.parseInt(laptopBox1.getSelectedItem().toString())+");";
+                    stmt.execute(s);
+                    JOptionPane.showMessageDialog(panelDash, "Added to cart");
+                }catch(Exception err){ System.out.println(err);}
             }
         });
         buySmartWatch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String del = "DELETE from cart where id = 4;";
+                    stmt.execute(del);
+                    String s = "INSERT into cart values(4,'Smart Watch',2500,"+ Integer.parseInt(smartWatchBox1.getSelectedItem().toString())+");";
+                    stmt.execute(s);
+                    JOptionPane.showMessageDialog(panelDash, "Added to cart");
+                }catch(Exception err){ System.out.println(err);}
             }
         });
-        smartWatchBox1.addActionListener(new ActionListener() {
+        buyAndroid.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String del = "DELETE from cart where id = 5;";
+                    stmt.execute(del);
+                    String s = "INSERT into cart values(5,'Android Phone',18999,"+ Integer.parseInt(androidBox1.getSelectedItem().toString())+");";
+                    stmt.execute(s);
+                    JOptionPane.showMessageDialog(panelDash, "Added to cart");
+                }catch(Exception err){ System.out.println(err);}
             }
         });
         buyEarphone.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        earphoneBox1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String del = "DELETE from cart where id = 6;";
+                    stmt.execute(del);
+                    String s = "INSERT into cart values(6,'Earphones',5000,"+ Integer.parseInt(earphoneBox1.getSelectedItem().toString())+");";
+                    stmt.execute(s);
+                    JOptionPane.showMessageDialog(panelDash, "Added to cart");
+                }catch(Exception err){ System.out.println(err);}
             }
         });
     }

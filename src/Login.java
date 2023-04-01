@@ -29,13 +29,21 @@ public class Login extends JFrame{
                 String pass = password.getText();
 
                 try{
-                    Class.forName("com.mysql.jdbc.Driver");
+                    Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con= DriverManager.getConnection(
                             "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
                     Statement stmt = con.createStatement();
                     String s = "select * from users where email='"+uname+"' and password='"+pass+"'";
                     ResultSet rs = stmt.executeQuery(s);
                     if(rs.next()){
+                        try{
+                            Class.forName("com.mysql.cj.jdbc.Driver");
+                            Connection conn= DriverManager.getConnection(
+                                    "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                            Statement stmt2 = conn.createStatement();
+                            String del = "DELETE from cart";
+                            stmt2.execute(del);
+                        }catch(Exception err){ System.out.println(err);}
                         h.dispose();
                         new Dash();
                     }
