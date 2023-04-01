@@ -44,7 +44,11 @@ public class Dash extends JFrame{
         h.setTitle("Hi");
         h.setSize(1200,720);
         h.setVisible(true);
+<<<<<<< HEAD
         h.setResizable(false);
+=======
+//        h.setResizable(false);
+>>>>>>> 7c02eb426f3e058e056b003e03f930ab728da7eb
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel greenPanel=new JPanel();
