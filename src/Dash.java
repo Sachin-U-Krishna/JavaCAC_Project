@@ -25,7 +25,7 @@ public class Dash extends JFrame{
     private JComboBox smartWatchBox1;
     private JPanel AndroidPhone;
     private JButton buyAndroid;
-    private JComboBox androisBox1;
+    private JComboBox androidBox1;
     private JPanel Earphones;
     private JButton buyEarphone;
     private JComboBox earphoneBox1;
@@ -34,6 +34,8 @@ public class Dash extends JFrame{
     private JPanel panel4;
     private JPanel panel5;
     private JPanel panel6;
+    private JButton buyIphone;
+    private JComboBox iphoneBox1;
 
     private JFrame h = new JFrame("Dash");
 
@@ -73,6 +75,90 @@ public class Dash extends JFrame{
                 parentPanel.add(orderPanel);
                 parentPanel.repaint();
                 parentPanel.revalidate();
+            }
+        });
+        iphoneBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        buyIphone.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        tabBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        buyTab.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        laptopBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        buyLaptop.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        earphoneBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        buyEarphone.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        buyAndroid.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        androidBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        buySmartWatch.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        smartWatchBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        buyEarphone.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        earphoneBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
