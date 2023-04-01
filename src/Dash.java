@@ -12,15 +12,28 @@ public class Dash extends JFrame{
     private JButton profileButton;
     private JButton ordersButton;
     private JPanel profilePanel;
-    private JPanel Iphone;
-    private JPanel Laptop;
-    private JPanel Mobile;
-    private JPanel Watch;
-    private JPanel Earphone;
     private JPanel orderPanel;
+    private JPanel panel1;
     private JPanel Tab;
-    private JButton buyButton;
-    private JComboBox comboBox1;
+    private JButton buyTab;
+    private JComboBox tabBox1;
+    private JPanel Laptop;
+    private JButton buyLaptop;
+    private JComboBox laptopBox1;
+    private JPanel SmartWatch;
+    private JButton buySmartWatch;
+    private JComboBox smartWatchBox1;
+    private JPanel AndroidPhone;
+    private JButton buyAndroid;
+    private JComboBox androisBox1;
+    private JPanel Earphones;
+    private JButton buyEarphone;
+    private JComboBox earphoneBox1;
+    private JPanel panel2;
+    private JPanel panel3;
+    private JPanel panel4;
+    private JPanel panel5;
+    private JPanel panel6;
 
     private JFrame h = new JFrame("Dash");
 
