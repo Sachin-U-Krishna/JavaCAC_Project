@@ -51,7 +51,7 @@ public class Dash extends JFrame{
 
     public Dash() {
         h.setContentPane(panelDash);
-        h.setTitle("Hi");
+        h.setTitle("E-Kart | Dashboard");
         h.setSize(1200, 720);
         h.setVisible(true);
 //        h.setResizable(false);
@@ -214,17 +214,20 @@ public class Dash extends JFrame{
         clearCartButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/JDBC", "root", DB_PASS);
-                    Statement stmt = con.createStatement();
-                    String del = "DELETE from cart";
-                    stmt.execute(del);
-                    JOptionPane.showMessageDialog(panelDash, "Removed cart items");
-                    showCart();
-                } catch (Exception err) {
-                    System.out.println(err);
+                int cnf = JOptionPane.showConfirmDialog(null,"Do you want to clear cart?");
+                if(cnf==0){
+                    try {
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection con = DriverManager.getConnection(
+                                "jdbc:mysql://localhost:3306/JDBC", "root", DB_PASS);
+                        Statement stmt = con.createStatement();
+                        String del = "DELETE from cart";
+                        stmt.execute(del);
+                        JOptionPane.showMessageDialog(panelDash, "Cleared Cart");
+                        showCart();
+                    } catch (Exception err) {
+                        System.out.println(err);
+                    }
                 }
             }
         });
@@ -242,7 +245,9 @@ public class Dash extends JFrame{
         logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                int cnf = JOptionPane.showConfirmDialog(null,"Do you want to log out?");
+                if(cnf==0)
+                    h.dispose();
             }
         });
     }

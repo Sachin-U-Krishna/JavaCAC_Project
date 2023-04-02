@@ -17,7 +17,7 @@ public class Login extends JFrame{
     private String DB_PASS = "";
     public Login() {
         h.setContentPane(panelMain);
-        h.setTitle("Hi");
+        h.setTitle("E-Kart | Login");
         h.setSize(500,400);
         h.setVisible(true);
         h.setResizable(false);

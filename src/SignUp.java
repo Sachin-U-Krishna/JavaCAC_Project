@@ -26,7 +26,7 @@ public class SignUp extends JFrame  {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        frame.setTitle("Hi");
+        frame.setTitle("E-Kart | Signup");
         frame.setSize(600,900);
         frame.setResizable(false);
         comboBox1.addActionListener(new ActionListener() {
