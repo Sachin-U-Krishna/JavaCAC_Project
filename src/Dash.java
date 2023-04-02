@@ -203,7 +203,7 @@ public class Dash extends JFrame{
         cartButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                showTable();
+                showCart();
             }
         });
 
@@ -220,7 +220,7 @@ public class Dash extends JFrame{
                     String del = "DELETE from cart";
                     stmt.execute(del);
                     JOptionPane.showMessageDialog(panelDash, "Removed cart items");
-                    showTable();
+                    showCart();
                 } catch (Exception err) {
                     System.out.println(err);
                 }
@@ -232,7 +232,7 @@ public class Dash extends JFrame{
         new Dash();
     }
 
-    public void showTable() {
+    public void showCart() {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con= DriverManager.getConnection(
@@ -244,18 +244,18 @@ public class Dash extends JFrame{
             DefaultTableModel model = new DefaultTableModel();
 
             int col = rsmd.getColumnCount();
-            col = col-1;
+            col = col - 1;
             String[] colName = new String[col];
             for(int i=0;i<col;i++){
                 colName[i] = rsmd.getColumnName(i+2);
             }
             model.setColumnIdentifiers(colName);
-            String product, price, qty;
-            if (rs.next()) {
+            String id,product,price,qty;
+            while (rs.next()) {
                 product = rs.getString("product");
                 price = rs.getString("price");
                 qty = rs.getString("qty");
-                model.addRow(new Object[]{product, price, qty});
+                model.addRow(new Object[]{product,price,qty});
             }
             table1.setModel(model);
 
