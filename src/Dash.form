@@ -207,7 +207,7 @@
                           <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
-                          <font name="Consolas" size="28" style="1"/>
+                          <font name="Inter" size="24" style="1"/>
                           <foreground color="-1"/>
                           <text value="29,999"/>
                         </properties>
@@ -372,7 +372,7 @@
                           <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
-                          <font name="Consolas" size="28" style="1"/>
+                          <font name="Inter" size="24" style="1"/>
                           <foreground color="-1"/>
                           <text value="20,000"/>
                         </properties>
@@ -517,7 +517,7 @@
                           <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
-                          <font name="Consolas" size="28" style="1"/>
+                          <font name="Inter" size="24" style="1"/>
                           <foreground color="-1"/>
                           <text value="52,000"/>
                         </properties>
@@ -807,7 +807,7 @@
                           <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
-                          <font name="Consolas" size="28" style="1"/>
+                          <font name="Inter" size="24" style="1"/>
                           <foreground color="-1"/>
                           <text value="18,999"/>
                         </properties>
@@ -952,7 +952,7 @@
                           <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
-                          <font name="Consolas" size="28" style="1"/>
+                          <font name="Inter" size="24" style="1"/>
                           <foreground color="-1"/>
                           <text value="5,000"/>
                         </properties>
