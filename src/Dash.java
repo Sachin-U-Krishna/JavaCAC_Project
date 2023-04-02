@@ -40,6 +40,8 @@ public class Dash extends JFrame{
     private JComboBox iphoneBox1;
     private JTable table1;
     private JButton clearCartButton;
+    private JButton orderButton1;
+    private JButton logoutButton;
 
     private String DB_PASS = "";
 
@@ -224,6 +226,23 @@ public class Dash extends JFrame{
                 } catch (Exception err) {
                     System.out.println(err);
                 }
+            }
+        });
+        // // // // // // // // // // // // // // this order button is inside cart which opens order panel
+        orderButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                parentPanel.removeAll();
+                parentPanel.add(orderPanel);
+                parentPanel.repaint();
+                parentPanel.revalidate();
+
+            }
+        });
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
