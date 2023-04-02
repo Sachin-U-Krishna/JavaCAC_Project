@@ -42,6 +42,12 @@ public class Dash extends JFrame{
     private JButton clearCartButton;
     private JButton orderButton1;
     private JButton logoutButton;
+    private JButton removeIphone;
+    private JButton removeTab;
+    private JButton removeLaptop;
+    private JButton removeSmartWatch;
+    private JButton removeAndroid;
+    private JButton removeEarphones;
 
     private String DB_PASS = "";
 
@@ -250,6 +256,144 @@ public class Dash extends JFrame{
                     h.dispose();
             }
         });
+        removeIphone.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String s = "select * from cart where id = 1";
+                    ResultSet rs = stmt.executeQuery(s);
+                    if(rs.next()){
+                        int cnf = JOptionPane.showConfirmDialog(null,"Remove Iphone from cart?");
+                        if(cnf == 0) {
+                            String del = "DELETE from cart where id = 1;";
+                            stmt.execute(del);
+                            JOptionPane.showMessageDialog(null, "Removed Iphone from cart");
+                        }
+                    }
+                    else
+                        JOptionPane.showMessageDialog(null, "Item not present in cart");
+                }catch(Exception err){ System.out.println(err);}
+            }
+        });
+        removeTab.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String s = "select * from cart where id = 2";
+                    ResultSet rs = stmt.executeQuery(s);
+                    if(rs.next()){
+                        int cnf = JOptionPane.showConfirmDialog(null,"Remove Tab from cart?");
+                        if(cnf == 0) {
+                            String del = "DELETE from cart where id = 2;";
+                            stmt.execute(del);
+                            JOptionPane.showMessageDialog(null, "Removed Tab from cart");
+                        }
+                    }
+                    else
+                        JOptionPane.showMessageDialog(null, "Item not present in cart");
+                }catch(Exception err){ System.out.println(err);}
+            }
+        });
+        removeLaptop.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String s = "select * from cart where id = 3";
+                    ResultSet rs = stmt.executeQuery(s);
+                    if(rs.next()){
+                        int cnf = JOptionPane.showConfirmDialog(null,"Remove Laptop from cart?");
+                        if(cnf == 0) {
+                            String del = "DELETE from cart where id = 3;";
+                            stmt.execute(del);
+                            JOptionPane.showMessageDialog(null, "Removed Laptop from cart");
+                        }
+                    }
+                    else
+                        JOptionPane.showMessageDialog(null, "Item not present in cart");
+                }catch(Exception err){ System.out.println(err);}
+            }
+        });
+        removeSmartWatch.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String s = "select * from cart where id = 4";
+                    ResultSet rs = stmt.executeQuery(s);
+                    if(rs.next()){
+                        int cnf = JOptionPane.showConfirmDialog(null,"Remove Smart Watch from cart?");
+                        if(cnf == 0) {
+                            String del = "DELETE from cart where id = 4;";
+                            stmt.execute(del);
+                            JOptionPane.showMessageDialog(null, "Removed Smart Watch from cart");
+                        }
+                    }
+                    else
+                        JOptionPane.showMessageDialog(null, "Item not present in cart");
+                }catch(Exception err){ System.out.println(err);}
+            }
+        });
+        removeAndroid.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String s = "select * from cart where id = 5";
+                    ResultSet rs = stmt.executeQuery(s);
+                    if(rs.next()){
+                        int cnf = JOptionPane.showConfirmDialog(null,"Remove Android Phone from cart?");
+                        if(cnf == 0) {
+                            String del = "DELETE from cart where id = 5;";
+                            stmt.execute(del);
+                            JOptionPane.showMessageDialog(null, "Removed Android Phone from cart");
+                        }
+                    }
+                    else
+                        JOptionPane.showMessageDialog(null, "Item not present in cart");
+                }catch(Exception err){ System.out.println(err);}
+            }
+        });
+        removeEarphones.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String s = "select * from cart where id = 6";
+                    ResultSet rs = stmt.executeQuery(s);
+                    if(rs.next()){
+                        int cnf = JOptionPane.showConfirmDialog(null,"Remove Earphones from cart?");
+                        if(cnf == 0) {
+                            String del = "DELETE from cart where id = 6;";
+                            stmt.execute(del);
+                            JOptionPane.showMessageDialog(null, "Removed Earphones from cart");
+                        }
+                    }
+                    else
+                        JOptionPane.showMessageDialog(null, "Item not present in cart");
+                }catch(Exception err){ System.out.println(err);}
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -276,9 +420,9 @@ public class Dash extends JFrame{
             model.setColumnIdentifiers(colName);
             String id,product,price,qty;
             while (rs.next()) {
-                product = rs.getString("product");
-                price = rs.getString("price");
-                qty = rs.getString("qty");
+                product = rs.getString("Product");
+                price = rs.getString("Price");
+                qty = rs.getString("Quantity");
                 model.addRow(new Object[]{product,price,qty});
             }
             table1.setModel(model);
