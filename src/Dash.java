@@ -1,10 +1,9 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Dash extends JFrame{
     private JPanel panelDash;
@@ -40,6 +39,7 @@ public class Dash extends JFrame{
     private JButton buyIphone;
     private JComboBox iphoneBox1;
     private JTable table1;
+    private JButton clearCartButton;
 
     private String DB_PASS = "";
 
@@ -197,16 +197,68 @@ public class Dash extends JFrame{
             }
         });
 
-//        Order Panel code
+//        cart Panel code
         cart.setContentPane(cartPanel);
 
+        cartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showTable();
+            }
+        });
 
 //        Order Panel code
         orders.setContentPane(orderPanel);
-
+        clearCartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC", "root", DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String del = "DELETE from cart";
+                    stmt.execute(del);
+                    JOptionPane.showMessageDialog(panelDash, "Removed cart items");
+                    showTable();
+                } catch (Exception err) {
+                    System.out.println(err);
+                }
+            }
+        });
     }
 
     public static void main(String[] args) {
         new Dash();
+    }
+
+    public void showTable() {
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+            Statement stmt = con.createStatement();
+            String s = "select * from cart";
+            ResultSet rs = stmt.executeQuery(s);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            DefaultTableModel model = new DefaultTableModel();
+
+            int col = rsmd.getColumnCount();
+            col = col-1;
+            String[] colName = new String[col];
+            for(int i=0;i<col;i++){
+                colName[i] = rsmd.getColumnName(i+2);
+            }
+            model.setColumnIdentifiers(colName);
+            String product, price, qty;
+            if (rs.next()) {
+                product = rs.getString("product");
+                price = rs.getString("price");
+                qty = rs.getString("qty");
+                model.addRow(new Object[]{product, price, qty});
+            }
+            table1.setModel(model);
+
+        }catch(Exception err){ System.out.println(err);}
     }
 }
