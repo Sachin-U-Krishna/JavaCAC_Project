@@ -48,6 +48,8 @@ public class Dash extends JFrame{
     private JButton removeSmartWatch;
     private JButton removeAndroid;
     private JButton removeEarphones;
+    private JTable table2;
+    private JButton confirmButton;
 
     private String DB_PASS = "";
 
@@ -205,49 +207,6 @@ public class Dash extends JFrame{
             }
         });
 
-//        cart Panel code
-        cart.setContentPane(cartPanel);
-
-        cartButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                showCart();
-            }
-        });
-
-//        Order Panel code
-        orders.setContentPane(orderPanel);
-        clearCartButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int cnf = JOptionPane.showConfirmDialog(null,"Do you want to clear cart?");
-                if(cnf==0){
-                    try {
-                        Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection(
-                                "jdbc:mysql://localhost:3306/JDBC", "root", DB_PASS);
-                        Statement stmt = con.createStatement();
-                        String del = "DELETE from cart";
-                        stmt.execute(del);
-                        JOptionPane.showMessageDialog(panelDash, "Cleared Cart");
-                        showCart();
-                    } catch (Exception err) {
-                        System.out.println(err);
-                    }
-                }
-            }
-        });
-        // // // // // // // // // // // // // // this order button is inside cart which opens order panel
-        orderButton1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                parentPanel.removeAll();
-                parentPanel.add(orderPanel);
-                parentPanel.repaint();
-                parentPanel.revalidate();
-
-            }
-        });
         logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -394,6 +353,82 @@ public class Dash extends JFrame{
                 }catch(Exception err){ System.out.println(err);}
             }
         });
+
+//        cart Panel code
+        cart.setContentPane(cartPanel);
+
+        cartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showCart();
+            }
+        });
+
+        clearCartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int cnf = JOptionPane.showConfirmDialog(null,"Do you want to clear cart?");
+                if(cnf==0){
+                    try {
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection con = DriverManager.getConnection(
+                                "jdbc:mysql://localhost:3306/JDBC", "root", DB_PASS);
+                        Statement stmt = con.createStatement();
+                        String del = "DELETE from cart";
+                        stmt.execute(del);
+                        JOptionPane.showMessageDialog(panelDash, "Cleared Cart");
+                        showCart();
+                    } catch (Exception err) {
+                        System.out.println(err);
+                    }
+                }
+            }
+        });
+
+//        Order Panel code
+        orders.setContentPane(orderPanel);
+
+        // Order Button
+        orderButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                parentPanel.removeAll();
+                parentPanel.add(orderPanel);
+                parentPanel.repaint();
+                parentPanel.revalidate();
+                showOrderTable();
+            }
+        });
+        ordersButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showOrderTable();
+            }
+        });
+        confirmButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+                    Statement stmt = con.createStatement();
+                    String s = "select * from cart";
+                    ResultSet rs = stmt.executeQuery(s);
+                    if (rs.next()) {
+                        int i = JOptionPane.showConfirmDialog(null,"Place Order?");
+                        if(i==0){
+                            JOptionPane.showMessageDialog(null,"Order Placed!\nYour Order will be delivered in 2-3 working days\n\nYou are being logged out...");
+                            h.dispose();
+                            new Login();
+                        }
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null,"Cart Empty!\nAdd items to cart before checkout");
+                    }
+                }catch(Exception err){ System.out.println(err);}
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -426,6 +461,47 @@ public class Dash extends JFrame{
                 model.addRow(new Object[]{product,price,qty});
             }
             table1.setModel(model);
+
+        }catch(Exception err){ System.out.println(err);}
+    }
+
+    public void showOrderTable() {
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con= DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/JDBC","root",DB_PASS);
+            Statement stmt = con.createStatement();
+            String s = "select * from cart";
+            ResultSet rs = stmt.executeQuery(s);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            DefaultTableModel model2 = new DefaultTableModel();
+
+            int col = rsmd.getColumnCount();
+            col = col + 1;
+            String[] colName = new String[col];
+            colName[0] = "S.No";
+            int i;
+            for(i=1;i<col-1;i++){
+                colName[i] = rsmd.getColumnName(i+1);
+            }
+            colName[i] = "Total";
+            model2.setColumnIdentifiers(colName);
+            String product,price,qty,costStr;
+            int cost,sum=0;
+            i=0;
+            while (rs.next()) {
+                i = i + 1;
+                product = rs.getString("Product");
+                price = rs.getString("Price");
+                qty = rs.getString("Quantity");
+                cost = Integer.parseInt(rs.getString("Price")) * Integer.parseInt(rs.getString("Quantity"));
+                sum = sum + cost;
+                costStr = String.valueOf(cost);
+                model2.addRow(new Object[]{String.valueOf(i),product,price,qty,costStr});
+            }
+            model2.addRow(new Object[]{"","","","",""});
+            model2.addRow(new Object[]{"","","","Total",sum});
+            table2.setModel(model2);
 
         }catch(Exception err){ System.out.println(err);}
     }
