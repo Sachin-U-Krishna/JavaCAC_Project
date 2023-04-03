@@ -51,7 +51,7 @@ public class Dash extends JFrame{
     private JTable table2;
     private JButton confirmButton;
 
-    private String DB_PASS = "";
+    private String DB_PASS = "Kpsy@2022";
 
     private JFrame h = new JFrame("Dash");
     private JFrame cart = new JFrame("Cart");

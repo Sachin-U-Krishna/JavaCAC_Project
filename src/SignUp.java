@@ -17,17 +17,19 @@ public class SignUp extends JFrame  {
     private JButton submitSignUp;
     private JComboBox comboBox2;
     private JButton cancelButton;
+    private JPanel leftPanel;
+    private JPasswordField passwordField1;
 
     private JLabel GenderSelected;
     private JFrame frame = new JFrame("SignUp");
-    private String DB_PASS = "";
+    private String DB_PASS = "Kpsy@2022";
     public SignUp() {
         frame.setContentPane(panelSignup);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
         frame.setTitle("E-Kart | Signup");
-        frame.setSize(600,900);
+        frame.setSize(950,1200);
         frame.setResizable(false);
         comboBox1.addActionListener(new ActionListener() {
             @Override
