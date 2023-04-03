@@ -18,7 +18,6 @@ public class SignUp extends JFrame  {
     private JComboBox comboBox2;
     private JButton cancelButton;
     private JPanel leftPanel;
-    private JPasswordField passwordField1;
 
     private JLabel GenderSelected;
     private JFrame frame = new JFrame("SignUp");

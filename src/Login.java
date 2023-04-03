@@ -19,7 +19,7 @@ public class Login extends JFrame{
         h.setContentPane(panelMain);
         h.setTitle("E-Kart | Login");
         h.setSize(800,600);
-        h.setVisible(true);
+        h.setVisible(true); 
         h.setResizable(false);
         h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         login.addActionListener(new ActionListener() {

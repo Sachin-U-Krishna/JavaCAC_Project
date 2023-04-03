@@ -61,9 +61,9 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-13264676"/>
+              <background color="-1"/>
               <font name="Malgun Gothic" size="22" style="1"/>
-              <foreground color="-1"/>
+              <foreground color="-13264676"/>
               <text value="Sign Up"/>
             </properties>
           </component>
@@ -157,7 +157,7 @@
             </constraints>
             <properties>
               <font name="Malgun Gothic" size="48" style="1"/>
-              <foreground color="-8750470"/>
+              <foreground color="-13264676"/>
               <text value="Login"/>
             </properties>
           </component>
